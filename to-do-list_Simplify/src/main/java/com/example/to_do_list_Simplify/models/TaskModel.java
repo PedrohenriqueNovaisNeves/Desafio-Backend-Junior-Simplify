@@ -14,7 +14,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "TB_tasks")
-public class Task implements Serializable {
+public class TaskModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
