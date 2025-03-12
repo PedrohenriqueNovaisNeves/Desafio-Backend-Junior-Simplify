@@ -25,5 +25,10 @@ public class TaskModel implements Serializable {
 
     @Column(nullable = true)
     private boolean carriedOut;
-    private String priority;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Prioridade priority;
+
+
 }
