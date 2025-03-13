@@ -49,7 +49,7 @@ public class TaskService {
         return taskRepository.save(newTask);
     }
 
-    public TaskModel toUpdateStatusTask(UUID id, String status){
+    public void toUpdateStatusTask(UUID id, String status){
         Optional<TaskModel> task = taskRepository.findById(id);
 
         if(task.isEmpty()){
@@ -59,8 +59,6 @@ public class TaskService {
         TaskModel newTask = task.get();
 
         newTask.setStatus(status);
-
-        return taskRepository.save(newTask);
     }
 
      public void deleteTask(UUID id){
