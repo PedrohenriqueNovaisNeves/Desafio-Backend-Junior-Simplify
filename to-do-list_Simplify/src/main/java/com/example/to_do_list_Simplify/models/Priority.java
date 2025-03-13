@@ -1,6 +1,6 @@
 package com.example.to_do_list_Simplify.models;
 
-public enum Prioridade {
+public enum Priority {
 
     ALTA,
     MEDIA,
