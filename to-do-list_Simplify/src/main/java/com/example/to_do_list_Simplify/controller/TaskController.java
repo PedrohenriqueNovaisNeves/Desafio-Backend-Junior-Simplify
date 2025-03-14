@@ -50,8 +50,8 @@ public class TaskController {
     }
 
     @GetMapping("/listTasksByPriority")
-    public ResponseEntity<List<TaskModel>> listTasksByPriority(@RequestBody Priority priority){
-        List<TaskModel> listTasks = taskService.listByPriority(priority);
+    public ResponseEntity<List<TaskModel>> listTasksByPriority(@RequestBody TaskModel taskModel){
+        List<TaskModel> listTasks = taskService.listByPriority(taskModel.getPriority());
         return ResponseEntity.status(HttpStatus.OK).body(listTasks);
     }
 
@@ -70,4 +70,15 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body("Status update");
     }
 
+    @DeleteMapping("/deleteAllTasks")
+    public ResponseEntity<Object> deleteAllTasks(){
+        taskService.deleteAllTasks();
+        return ResponseEntity.status(HttpStatus.OK).body("Delete all completed successfully");
+    }
+
+    @DeleteMapping("/deleteOneTask/{id}")
+    public ResponseEntity<Object> deleteOneTask(@PathVariable(value = "id")UUID id){
+        taskService.deleteTask(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Task delete successfully");
+    }
 }
